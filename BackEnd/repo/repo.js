@@ -13,3 +13,15 @@ export async function registerRepo(userInfo) {
         throw error
     }
 }
+
+export async function getByEmail(email) {
+    try {
+        const result = await collection.findOne({email: email})
+        return result
+    } catch (error) {
+        console.log('loginRepo',error)
+        throw error  
+    }
+}
+
+// console.log(await getByEmail('e@mail.com'))

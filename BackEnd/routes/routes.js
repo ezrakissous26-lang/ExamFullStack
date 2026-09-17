@@ -1,18 +1,10 @@
 import express from 'express'
-import { registerRepo } from '../repo/repo.js'
+import { checkValidBodyRegister } from '../middleware/middleware.js'
+import { registerControllers } from '../controllers/controllers.js'
 
 export const router = express.Router()
 
-router.post('/test', async (req, res) => {
-    // try {
-    //     const result = await registerRepo(req.body)
-    //     return res.status(201).json({message: `Succesfully register id : ${result.insertedId}`})
-    // } catch (error) {
-    //     return res.status(500).json({error: error.message})
-    // }
-})
-
-// router.post('/register')
+router.post('/register', checkValidBodyRegister, registerControllers)
 
 // router.post('login')
 
