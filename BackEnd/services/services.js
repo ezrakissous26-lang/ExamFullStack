@@ -2,7 +2,7 @@ import bcrypt from 'bcrypt'
 import 'dotenv/config'
 import jwt from 'jsonwebtoken'
 import { getByEmail, registerRepo } from '../repo/user.repo.js'
-import { createPostRepo } from '../repo/post.repo.js'
+import { createPostRepo, getPost } from '../repo/post.repo.js'
 
 const JWT_SECRET = process.env.JWT_SECRET
 
@@ -18,7 +18,7 @@ export async function registerService(userInfo) {
             throw err
         }
         const hash = await bcrypt.hash(password, 10)
-        const result = registerRepo({username, email, password: hash})
+        const result = await registerRepo({username, email, password: hash})
         return result
     } catch (error) {
         throw error
@@ -52,10 +52,19 @@ export async function loginService(userInfo) {
     }
 }
 
-export async function createPostService(data, token) {
+export async function createPostService(data) {
     try {
-        const mytoken = jwt.decode(token)
-        const result = await createPostRepo({data, username: mytoken.username, email: mytoken.email})
+        // const mytoken = jwt.decode(token)
+        const result = await createPostRepo(data)
+        return result
+    } catch (error) {
+        throw error
+    }
+}
+
+export async function getPostService() {
+    try {
+        const result = await getPost()
         return result
     } catch (error) {
         throw error

@@ -1,4 +1,4 @@
-import { createPostService, loginService, registerService } from "../services/services.js";
+import { createPostService, getPostService, loginService, registerService } from "../services/services.js";
 
 export async function registerControllers(req, res) {
     try {
@@ -18,10 +18,20 @@ export async function loginControllers(req, res) {
     }
 }
 
-export async function createPost(req, res) {
+export async function createPostController(req, res) {
     try {
-        const result = await createPostService(req.body, )
+        const result = await createPostService(req.body)
+        return res.status(201).json({message: 'Succesfully Posted'})
     } catch (error) {
-        
+        return res.status(error.status || 500).json({error: error.message})
+    }
+}
+
+export async function getAllPostController(req, res) {
+    try {
+        const result = await getPostService()
+        return res.status(201).json(result)
+    } catch (error) {
+        return res.status(error.status || 500).json({error: error.message})
     }
 }
