@@ -22,6 +22,7 @@ export async function loginControllers(req, res) {
 
 export async function createPostController(req, res) {
     try {
+        console.log(req.body)
         const result = await createPostService(req.body)
         return res.status(201).json({message: 'Succesfully Posted'})
     } catch (error) {

@@ -36,12 +36,12 @@ export async function fecthLogin(email: string, password: string) {
     }
 }
 
-export async function fecthPostPost(data: any, token: string) {
+export async function fecthPostPost(data: string, token: string) {
     try {
         const response = await fetch('http://localhost:3000/post', {
             method: 'POST',
             headers: {"Content-Type": "application/json", Authorization: `Bearer ${token}`},
-            body: JSON.stringify(data)
+            body: JSON.stringify({message: data})
         })
         const dataResponse = await response.json()
         if (!response.ok) {

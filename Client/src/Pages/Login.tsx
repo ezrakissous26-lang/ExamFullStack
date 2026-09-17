@@ -1,13 +1,15 @@
 import { useState } from "react"
+import { myStore, usernameStore } from "../Store/Store"
+import { fecthLogin } from "../ServiceApi/api"
 
 export default function Login() {
 
   const [email, SetEmail] =useState('')
   const [password, setPassword ] = useState('')
   const [message, setMessage] = useState('')
-  const setToken = tokenStore((state) => state.setToken)
+  const setToken = myStore((state) => state.setToken)
   const [validlogin, setValidLogin] = useState(false)
-  const [username, setUsername] = useStae('')
+  const setUsername = usernameStore((state) => state.setUsername)
 
 
   return (
@@ -24,7 +26,7 @@ export default function Login() {
         setValidLogin(false)
       }
     }} >
-      <h3>Hello {username}</h3>
+      <h3>Hello</h3>
         <input onChange={(e)=> SetEmail(e.target.value)} value={email} type="email" name="" id="" placeholder='Enter you e-mail'/>
         <input onChange={(e)=> setPassword(e.target.value)} value={password} type="password" name="" id="" placeholder='Enter your password'/>
         <button type="submit">Submit</button>

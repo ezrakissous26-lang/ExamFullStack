@@ -5,6 +5,7 @@ const collection = db.collection('socialMediaPost')
 
 export async function createPostRepo(post) {
     try {
+        console.log(post)
         const result = await collection.insertOne(post)
         return result
     } catch (error) {

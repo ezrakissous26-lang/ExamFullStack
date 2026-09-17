@@ -55,6 +55,7 @@ export async function loginService(userInfo) {
 export async function createPostService(data) {
     try {
         // const mytoken = jwt.decode(token)
+        console.log(data)
         const result = await createPostRepo(data)
         return result
     } catch (error) {

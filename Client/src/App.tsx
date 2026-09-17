@@ -6,6 +6,7 @@ import GetPost from './Pages/GetPost'
 import Login from './Pages/Login'
 import Register from './Pages/register'
 import PostPost from './Pages/PostPost'
+import ProtectedRoute from './Components/ProtectedRoute'
 
 
 
@@ -16,9 +17,9 @@ function App() {
     <Header/>
     <Routes>
       <Route path='/login' element={<Login/>}/>
-      <Route path='register' element={<Register/>}/>
-      <Route path='getpost' element={<GetPost/>}/>
-      <Route path='postposts' element={<PostPost/>}/>
+      <Route path='/register' element={<Register/>}/>
+      <Route path='/getpost' element={<ProtectedRoute> <GetPost/> </ProtectedRoute>}/>
+      <Route path='/postposts' element={<ProtectedRoute> <PostPost/> </ProtectedRoute>}/>
     </Routes>
     <Footer/>
     </>
