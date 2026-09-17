@@ -19,7 +19,7 @@ function App() {
       <Route path='/login' element={<Login/>}/>
       <Route path='/register' element={<Register/>}/>
       <Route path='/getpost' element={<ProtectedRoute> <GetPost/> </ProtectedRoute>}/>
-      <Route path='/postposts' element={<ProtectedRoute> <PostPost/> </ProtectedRoute>}/>
+      <Route path='/post' element={<ProtectedRoute> <PostPost/> </ProtectedRoute>}/>
     </Routes>
     <Footer/>
     </>

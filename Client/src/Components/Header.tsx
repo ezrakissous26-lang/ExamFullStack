@@ -1,16 +1,19 @@
 // import { usernameStore } from "../Store/Store"
 
-// const username = usernameStore((state) => state.username)
+import { Link } from "react-router";
 
+
+// const username = usernameStore((state) => state.username)
 
 export default function Header() {
   return (
     <div>
+      <h1>Hello</h1>
       {/* <h1>Hello {username}</h1> */}
-      <button>Register</button>
-      <button>LogIn</button>
-      <button>See Post</button>
-      <button>Create your post</button>
+      <Link to="/login">Login</Link>
+      <Link to="/register">Register</Link>
+      <Link to="/getpost">See Post</Link>
+      <Link to="/post">Create your post</Link>
     </div>
   )
 }
