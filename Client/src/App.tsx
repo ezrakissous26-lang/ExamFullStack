@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router'
-import './App.css'
+// import './App.css'
 import Footer from './Components/Footer'
 import Header from './Components/Header'
 import GetPost from './Pages/GetPost'

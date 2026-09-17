@@ -22,10 +22,11 @@ export default function Register() {
         SetaMessage(error.message)
       }
     }} >
+      <p>Register</p>
       <input onChange={(e) => setUsername(e.target.value)} value={username} type="text" placeholder='Enter your name'/>
       <input onChange={(e) => setEmail(e.target.value)} value={email} type="email" name="" id="" placeholder='Enter you e-mail' />
       <input onChange={(e) => setPassword(e.target.value)} value={password} type="password" name="" id="" placeholder='Enter your password' />
-      <input type="image" src="" alt="" placeholder='Drag here your image'/>
+      {/* <input type="image" src="" alt="" placeholder='Drag here your image'/> */}
       <button type="submit">Submit</button>
       {/* <button onClick={navigate('/login')} >Go to LogIn</button> */}
       <p>{message}</p>
