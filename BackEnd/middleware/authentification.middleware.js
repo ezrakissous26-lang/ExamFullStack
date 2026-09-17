@@ -9,16 +9,19 @@ export function checkValidToken(req, res, next) {
     }
     const headerToken = req.headers.authorization
     if (!headerToken) {
+        console.log(error)
         return res.status(400).json({error: 'Token required in header'})
     }
     const [ type, token ] = headerToken.split(' ')
     if(!token || type !== 'Bearer') {
+        console.log(error)
         return res.status(400).json({error: 'token with type Bearer required'})
     } else {
         try {
             jwt.verify(token, JWT_SECRET)
             next()
         } catch (error) {
+            console.log(error)
             return res.status(403).json({error: error.message})
         }
     }
@@ -32,12 +35,14 @@ export function checkValidTokenGet(req, res, next) {
     }
     const [ type, token ] = headerToken.split(' ')
     if(!token || type !== 'Bearer') {
+        console.log(error)
         return res.status(400).json({error: 'token with type Bearer required'})
     } else {
         try {
             jwt.verify(token, JWT_SECRET)
             next()
         } catch (error) {
+            console.log(error)
             return res.status(403).json({error: error.message})
         }
     }
