@@ -9,10 +9,10 @@ function App() {
     <>
     <Header/>
     <Routes>
-      <Route path='login'/>
-      <Route path='register'/>
-      <Route path='getpost'/>
-      <Route path='postposts'/>
+      <Route path='login' element={}/>
+      <Route path='register' element={}/>
+      <Route path='getpost' element={}/>
+      <Route path='postposts' element={}/>
     </Routes>
     <Footer/>
     </>

@@ -5,7 +5,6 @@ export default function Login() {
     <form>
         <input type="email" name="" id="" placeholder='Enter you e-mail'/>
         <input type="password" name="" id="" placeholder='Enter your password'/>
-        <button type="submit">Submit</button>
     </form>
   )
 }
