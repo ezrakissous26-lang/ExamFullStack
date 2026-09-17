@@ -1,4 +1,4 @@
-import { loginService, registerService } from "../services/services.js";
+import { createPostService, loginService, registerService } from "../services/services.js";
 
 export async function registerControllers(req, res) {
     try {
@@ -15,5 +15,13 @@ export async function loginControllers(req, res) {
         return res.status(200).json({message: `Succesfully logIn, Welcome ${result.username}`, token:result.token, username: result.username})
     } catch (error) {
         return res.status(error.status || 500).json({error: error.message})
+    }
+}
+
+export async function createPost(req, res) {
+    try {
+        const result = await createPostService(req.body, )
+    } catch (error) {
+        
     }
 }

@@ -1,9 +1,11 @@
 import bcrypt from 'bcrypt'
 import 'dotenv/config'
 import jwt from 'jsonwebtoken'
-import { getByEmail, registerRepo } from '../repo/repo.js'
+import { getByEmail, registerRepo } from '../repo/user.repo.js'
+import { createPostRepo } from '../repo/post.repo.js'
 
 const JWT_SECRET = process.env.JWT_SECRET
+
 export async function registerService(userInfo) {
     
     const { username, email, password} = userInfo
@@ -40,11 +42,21 @@ export async function loginService(userInfo) {
             err.status = 403
             throw err
         }
-        const token = jwt.sign({ email }, JWT_SECRET)
+        const token = jwt.sign({ email, username: isExist.username }, JWT_SECRET)
         return {
             token,
             username: isExist.username
         }
+    } catch (error) {
+        throw error
+    }
+}
+
+export async function createPostService(data, token) {
+    try {
+        const mytoken = jwt.decode(token)
+        const result = await createPostRepo({data, username: mytoken.username, email: mytoken.email})
+        return result
     } catch (error) {
         throw error
     }
