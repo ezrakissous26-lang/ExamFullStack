@@ -24,4 +24,4 @@ export async function getByEmail(email) {
     }
 }
 
-// console.log(await getByEmail('e@mail.com'))
+// console.log('hello ',await getByEmail('ezra@mail.com'))
